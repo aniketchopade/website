@@ -50,10 +50,10 @@ func main() {
 	mux.Handle("/", s)
 
 	ln.Log(ctx, ln.Action("http_listening"))
-	ln.FatalErr(ctx, http.ListenAndServe(":"+port, mux))
+	ln.FatalErr(ctx, http.ListenAndServeTLS(":"+port,"server.crt", "server.key", mux))
 }
 
-// Site is the parent object for https://christine.website's backend.
+// Site is the parent object for https://chopade.xyz's backend.
 type Site struct {
 	Posts  blog.Posts
 	Talks  blog.Posts
@@ -87,25 +87,25 @@ var arbDate = time.Date(2019, time.May, 20, 18, 0, 0, 0, time.UTC)
 func Build() (*Site, error) {
 	smi := sitemap.New()
 	smi.Add(&sitemap.URL{
-		Loc:        "https://christine.website/resume",
+		Loc:        "https://chopade.xyz/resume",
 		LastMod:    &arbDate,
 		ChangeFreq: sitemap.Monthly,
 	})
 
 	smi.Add(&sitemap.URL{
-		Loc:        "https://christine.website/contact",
+		Loc:        "https://chopade.xyz/contact",
 		LastMod:    &arbDate,
 		ChangeFreq: sitemap.Monthly,
 	})
 
 	smi.Add(&sitemap.URL{
-		Loc:        "https://christine.website/",
+		Loc:        "https://chopade.xyz/",
 		LastMod:    &arbDate,
 		ChangeFreq: sitemap.Monthly,
 	})
 
 	smi.Add(&sitemap.URL{
-		Loc:        "https://christine.website/blog",
+		Loc:        "https://chopade.xyz/blog",
 		LastMod:    &arbDate,
 		ChangeFreq: sitemap.Weekly,
 	})
@@ -117,24 +117,24 @@ func Build() (*Site, error) {
 
 	s := &Site{
 		rssFeed: &feeds.Feed{
-			Title:       "Christine Dodrill's Blog",
-			Link:        &feeds.Link{Href: "https://christine.website/blog"},
+			Title:       "Aniket's Blog",
+			Link:        &feeds.Link{Href: "https://chopade.xyz/blog"},
 			Description: "My blog posts and rants about various technology things.",
-			Author:      &feeds.Author{Name: "Christine Dodrill", Email: "me@christine.website"},
+			Author:      &feeds.Author{Name: "Aniket Chopade", Email: "aniketchopade@gmail.com"},
 			Created:     bootTime,
-			Copyright:   "This work is copyright Christine Dodrill. My viewpoints are my own and not the view of any employer past, current or future.",
+			Copyright:   "This work is not copyright of Aniket. My viewpoints are my own and not the view of any employer past, current or future.",
 		},
 		jsonFeed: &jsonfeed.Feed{
 			Version:     jsonfeed.CurrentVersion,
-			Title:       "Christine Dodrill's Blog",
-			HomePageURL: "https://christine.website",
-			FeedURL:     "https://christine.website/blog.json",
+			Title:       "Aniket's Blog",
+			HomePageURL: "https://chopade.xyz/",
+			FeedURL:     "https://chopade.xyz/blog.json",
 			Description: "My blog posts and rants about various technology things.",
 			UserComment: "This is a JSON feed of my blogposts. For more information read: https://jsonfeed.org/version/1",
 			Icon:        icon,
 			Favicon:     icon,
 			Author: jsonfeed.Author{
-				Name:   "Christine Dodrill",
+				Name:   "Aniket Chopade",
 				Avatar: icon,
 			},
 		},
@@ -148,7 +148,7 @@ func Build() (*Site, error) {
 	}
 	s.Posts = posts
 
-	talks, err := blog.LoadPosts("./talks", "talks")
+	talks, err := blog.LoadPosts("./blog", "talks")
 	if err != nil {
 		return nil, err
 	}
@@ -156,7 +156,7 @@ func Build() (*Site, error) {
 
 	var everything blog.Posts
 	everything = append(everything, posts...)
-	everything = append(everything, talks...)
+	// everything = append(everything, talks...)
 
 	sort.Sort(sort.Reverse(everything))
 
@@ -170,22 +170,22 @@ func Build() (*Site, error) {
 	for _, item := range everything {
 		s.rssFeed.Items = append(s.rssFeed.Items, &feeds.Item{
 			Title:       item.Title,
-			Link:        &feeds.Link{Href: "https://christine.website/" + item.Link},
+			Link:        &feeds.Link{Href: "https://chopade.xyz/" + item.Link},
 			Description: item.Summary,
 			Created:     item.Date,
 			Content:     string(item.BodyHTML),
 		})
 
 		s.jsonFeed.Items = append(s.jsonFeed.Items, jsonfeed.Item{
-			ID:            "https://christine.website/" + item.Link,
-			URL:           "https://christine.website/" + item.Link,
+			ID:            "https://chopade.xyz/" + item.Link,
+			URL:           "https://chopade.xyz/" + item.Link,
 			Title:         item.Title,
 			DatePublished: item.Date,
 			ContentHTML:   string(item.BodyHTML),
 		})
 
 		smi.Add(&sitemap.URL{
-			Loc:        "https://christine.website/" + item.Link,
+			Loc:        "https://chopade.xyz/" + item.Link,
 			LastMod:    &item.Date,
 			ChangeFreq: sitemap.Monthly,
 		})
@@ -227,4 +227,4 @@ func Build() (*Site, error) {
 	return s, nil
 }
 
-const icon = "https://christine.website/static/img/avatar.png"
+const icon = "https://chopade.xyz/static/img/avatar.png"

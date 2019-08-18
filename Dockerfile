@@ -10,6 +10,7 @@ EXPOSE 29384
 RUN apk add --no-cache bash
 WORKDIR /site
 COPY --from=build /root/site .
+COPY ./cmd/site .
 COPY ./static /site/static
 COPY ./templates /site/templates
 COPY ./blog /site/blog

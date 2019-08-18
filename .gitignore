@@ -1,0 +1,4 @@
+*.asar
+cw.tar
+.env
+.DS_Store

@@ -1,0 +1,68 @@
+{{ define "title" }}
+<title>Aniket Chopade</title>
+<!-- <link rel="authorization_endpoint" href="https://idp.christine.website/auth"> -->
+<link rel="canonical" href="https://chopade.xyz/">
+<!-- <meta name="google-site-verification" content="rzs9eBEquMYr9Phrg0Xm0mIwFjDBcbdgJ3jF6Disy-k" /> -->
+<script type="application/ld+json">
+ {
+     "@context": "http://schema.org/",
+     "@type": "Person",
+     "name": "Aniket",
+     "alternateName": "Chopade, Aniket",
+     "url": "https://chopade.xyz",
+     "image": "https://christine.website/static/img/avatar_large.png",
+     "sameAs": [
+         "https://github.com/aniketchpoade",
+         "https://twitter.com/aniketchopade",
+         "https://www.linkedin.com/in/aniket-chopade-3774ba12/"
+     ]
+ }
+</script>
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@aniketchopade" />
+<meta name="twitter:title" content="Aniket Chopade" />
+<meta name="twitter:description" content="Web and Backend Services Devops Specialist" />
+
+<!-- Facebook -->
+<!-- <meta property="og:type" content="website" /> -->
+<!-- <meta property="og:title" content="Christine Dodrill" /> -->
+<!-- <meta property="og:site_name" content="Web and Backend Services Devops Specialist" /> -->
+
+<!-- Description -->
+<!-- <meta name="description" content="Web and Backend Services Devops Specialist" /> -->
+<!-- <meta name="author" content="Christine Dodrill"> -->
+{{ end }}
+
+{{ define "content" }}
+<div class="grid">
+    <div class="cell -3of12 content">
+        <img src="/static/img/avatar.png" alt="My Avatar">
+        <br />
+        <a href="/contact" class="justify-content-center">Contact Me</a>
+    </div>
+    <div class="cell -9of12 content">
+        <h1>Aniket Chopade</h1>
+        <h4>Web and Backend Services Devops Specialist</h4>
+        <h5>Skills</h5>
+        <ul>
+            <li>Go, C, JS, Java, Python (3.x) and other languages</li>
+            <li>AWS, GCP and Azure</li>
+            <li>K8s and Docker (deployment, development & more)</li>
+            <li>Mashups of data</li>
+        </ul>
+
+        <h5>Highlighted Projects</h5>
+        <ul>
+            <li><a href="https://github.com/aniketchopade/customer-service-mesh">Service Mesh</a> - Boilerplate code for deploying services in K8s</li>
+            <li><a href="https://github.com/aniketchopade/golang-tcp">TCP server</a> - A High performanyt TCP server in golang using worker pattern</li>            
+            <li><a href="https://github.com/aniketchopade/ecs-on-ec2-nlb">ECS boot</a> - Terraform scripts for quickly spinning up ECS cluster </li>            
+            <li><a href="https://github.com/aniketchopade/notesonaws">AWS CSA</a> - Notes for AWS Certification </li>
+            <li><a href="https://github.com/aniketchopade/cppandcdynamo">DynamoDB from C</a> - Linking AWS Dynamodb c++ SDK with clang</li>
+            <li><a href="https://github.com/aniketchopade/primenum-node-exec">NodeJs and C </a> - Create C app Bindings for NodeJS</li>
+            <li><a href="https://github.com/aniketchopade/zmqencryption">ZMQ client server </a> - Simple client and server app for using Encrypted ZMQ</li>
+        </ul>
+    </div>
+</div>
+{{ end }}

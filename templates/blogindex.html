@@ -1,0 +1,27 @@
+{{ define "title" }}
+<title>Blog - Aniket Chopade</title>
+{{ end }}
+
+{{ define "content" }}
+<h1>Blogposts</h1>
+
+<p>If you have a compatible reader, be sure to check out my <a href="/blog.rss">RSS Feed</a> for automatic updates. Also check out the <a href="/blog.json">JSONFeed</a>.</p>
+
+<p>
+    <ul>
+        {{ range . }}
+            <li>{{ .DateString }} - <a href="{{ .Link }}">{{ .Title }}</a></li>
+        {{ end }}
+    </ul>
+</p>
+
+<br />
+
+<h2>Other Blogs I Find Interesting</h2>
+
+<ul>
+</ul>
+
+
+
+{{ end }}

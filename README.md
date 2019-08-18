@@ -3,4 +3,5 @@
 My personal/portfolio website.
 
 ![](https://i.ibb.co/cC7WWcj/chopade-xyz.png)
-Thanks Christine Dodrill 
+
+<sub><sup>Thanks Christine Dodrill</sub></sup>

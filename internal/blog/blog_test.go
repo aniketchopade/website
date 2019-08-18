@@ -15,19 +15,19 @@ func TestLoadPosts(t *testing.T) {
 	}
 }
 
-func TestLoadTalks(t *testing.T) {
-	talks, err := LoadPosts("../../talks", "talks")
-	if err != nil {
-		t.Fatal(err)
-	}
+// func TestLoadTalks(t *testing.T) {
+// 	talks, err := LoadPosts("../../talks", "talks")
+// 	if err != nil {
+// 		t.Fatal(err)
+// 	}
 
-	for _, talk := range talks {
-		t.Run(talk.Link, talk.test)
-		if talk.SlidesLink == "" {
-			t.Errorf("talk %s (%s) doesn't have a slides link", talk.Title, talk.DateString)
-		}
-	}
-}
+// 	for _, talk := range talks {
+// 		t.Run(talk.Link, talk.test)
+// 		if talk.SlidesLink == "" {
+// 			t.Errorf("talk %s (%s) doesn't have a slides link", talk.Title, talk.DateString)
+// 		}
+// 	}
+// }
 
 func (p Post) test(t *testing.T) {
 	if p.Title == "" {

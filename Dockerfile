@@ -13,7 +13,6 @@ COPY --from=build /root/site .
 COPY ./static /site/static
 COPY ./templates /site/templates
 COPY ./blog /site/blog
-COPY ./talks /site/talks
 COPY ./css /site/css
 COPY ./app /app
 COPY ./app.json .

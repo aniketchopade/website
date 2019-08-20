@@ -50,7 +50,8 @@ func main() {
 	mux.Handle("/", s)
 
 	ln.Log(ctx, ln.Action("http_listening"))
-	ln.FatalErr(ctx, http.ListenAndServeTLS(":"+port,"./certs/server.crt", "./certs/server.key", mux))
+	//ln.FatalErr(ctx, http.ListenAndServeTLS(":"+port,"./certs/server.crt", "./certs/server.key", mux))
+	ln.FatalErr(ctx, http.ListenAndServe(":"+port, mux))
 }
 
 // Site is the parent object for https://chopade.xyz's backend.

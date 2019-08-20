@@ -38,7 +38,7 @@ In any EC2 or on localhost setup:
     * aws eks update-kubeconfig --name $YOUR_EKS_CLUSTER_NAME
     * kubectl get svc
 
-4. Setup worker node. refer CF template aws-eks-nodegroup.yml
+4. Setup worker node. refer CF template [aws-eks-nodegroup.yml](https://gist.github.com/aniketchopade/29c1f1bc5b4856dc4aa5a4a9e929885d#file-aws-eks-nodegroup-yml)
     * this makes sure that correct role is assigned
     * Please follow guide here for pulling correct AMI.
     * Correct AMI (matching with region and kubernetes version is imp. Worker nodes will not be in ready state , if correct AMI not chosen)

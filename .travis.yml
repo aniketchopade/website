@@ -5,9 +5,9 @@ services:
 
 script:
   - docker build .
-  
+
 deploy:
   provider: script
-  script: bash docker_push
+  script: bash docker_push.sh
   on:
     branch: master

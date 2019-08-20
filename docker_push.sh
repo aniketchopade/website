@@ -1,3 +1,3 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker push $DOCKER_USERNAME/website
+docker push $DOCKER_USERNAME/site

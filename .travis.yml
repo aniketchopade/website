@@ -11,5 +11,5 @@ script:
   - pip install --upgrade --user awscli
   - export PATH=~/.local/bin:$PATH
   - aws ecs update-service --cluster my-cluster --service aniketswebsite --desired-count 0 --region us-east-1 
-  - sleep 10 
+  - sleep 30 
   - "aws ecs update-service --cluster my-cluster --service aniketswebsite --desired-count 1 --region us-east-1"

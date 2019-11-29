@@ -4,7 +4,7 @@ services:
   - docker
 
 script:
-  - docker build . -t DOCKER_USERNAME/site
+  - docker build . -t $DOCKER_USERNAME/site
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push $DOCKER_USERNAME/site
   # - pip install --upgrade --user awscli

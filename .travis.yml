@@ -6,7 +6,7 @@ services:
 script:
   - docker build . -t $DOCKER_USERNAME/site
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push $DOCKER_USERNAME/site
+  - docker push aniketchopade/site
   # - pip install --upgrade --user awscli
   # - export PATH=~/.local/bin:$PATH
   # - aws ecs update-service --cluster my-cluster --service aniketswebsite --desired-count 0 --region us-east-1 
